@@ -25,10 +25,12 @@ def main():
     st.subheader('Données démographiques')
     st.write(data)
     
-    # Afficher un graphique interactif avec seaborn
+     # Afficher un graphique interactif avec seaborn
     st.subheader('Graphique de la population par pays')
-    sns.barplot(x='Pays', y='Population (millions)', data=data)
-    st.pyplot()
+    fig, ax = plt.subplots()
+    sns.barplot(x='Pays', y='Population (millions)', data=data, ax=ax)
+    plt.xticks(rotation=45)
+    st.pyplot(fig)
     
     # Bouton pour télécharger les données
     if st.button("Télécharger les données au format CSV"):
