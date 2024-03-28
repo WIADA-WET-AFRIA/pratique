@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-#import matplotlib.pyplot as plt
 import seaborn as sns
 
 def main():
@@ -26,12 +25,10 @@ def main():
     st.subheader('Données démographiques')
     st.write(data)
     
-    # Afficher un graphique interactif
-    #st.subheader('Graphique de la population par pays')
-    #fig, ax = plt.subplots()
-    #sns.barplot(x='Pays', y='Population (millions)', data=data, ax=ax)
-    #plt.xticks(rotation=45)
-    #st.pyplot(fig)
+    # Afficher un graphique interactif avec seaborn
+    st.subheader('Graphique de la population par pays')
+    sns.barplot(x='Pays', y='Population (millions)', data=data)
+    st.pyplot()
     
     # Bouton pour télécharger les données
     if st.button("Télécharger les données au format CSV"):
