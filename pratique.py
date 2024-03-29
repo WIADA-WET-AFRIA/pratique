@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
 
 def main():
     st.title('Application WIADA 2023')
@@ -26,12 +25,10 @@ def main():
     st.subheader('Données démographiques')
     st.write(data)
     
-     # Afficher un graphique interactif avec seaborn
+    # Afficher un graphique interactif avec seaborn
     st.subheader('Graphique de la population par pays')
-    fig, ax = plt.subplots()
-    sns.barplot(x='Pays', y='Population (millions)', data=data, ax=ax)
-    plt.xticks(rotation=45)
-    st.pyplot(fig)
+    sns.barplot(x='Pays', y='Population (millions)', data=data)
+    st.pyplot()
     
     # Bouton pour télécharger les données
     if st.button("Télécharger les données au format CSV"):
